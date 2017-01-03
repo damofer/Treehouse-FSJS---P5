@@ -1,4 +1,5 @@
 
+   "use strict";
 // Since the script is at the bottom of the page , the document ready function is not needed
 	$("form").on("submit",function(evt){
 		// prevent form to take user to another page on submit.
@@ -46,7 +47,7 @@
 						if(movie.Poster !="N/A"){// if there are thumbnails
 						movieHTML+="<img class='movie-poster' src='"+movie.Poster+"'>";
 						}else{ //if there are no thumbnails in the movie then replace with the next line
-							movieHTML+="<i class='material-icons poster-placeholder'>crop_original</i>"
+							movieHTML+="<i class='material-icons poster-placeholder'>crop_original</i>";
 						}
 						movieHTML +="</div>";
 						movieHTML +="<span class='movie-title'>"+movie.Title+"</span>";
@@ -59,7 +60,7 @@
 				
 				// once  everything is formated to html then add to the dom.
 				$("#movies").html(movieHTML);
-		};
+		}
 
 		// AJAX request.
 		$.getJSON(url,data,callback);
@@ -102,7 +103,7 @@ function viewMovieDetails(id){
 
 			$(".moviePage_bottomdiv_content").html(bottomdiv);
 			if(details.Poster !="N/A"){
-				$(".moviePage_thumbnail").attr("src",details.Poster)
+				$(".moviePage_thumbnail").attr("src",details.Poster);
 
 			}else{
 
@@ -129,7 +130,7 @@ function back(){
 				$("#movies").show("slow",function(){
 					$(".moviePage_topdiv_title").html("<h1>Loading..</h1><img src='svg/gears.svg'>");
 					$(".moviePage_bottomdiv_content").html("");
-					$(".moviePage_thumbnail").attr("src","")
+					$(".moviePage_thumbnail").attr("src","");
 				});
 
 			});
